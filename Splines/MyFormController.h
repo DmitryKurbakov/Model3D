@@ -1,12 +1,19 @@
 #pragma once
 
-#include "MyForm.h"
+
+using namespace System::Windows::Forms;
+
 
 ref class MyFormController 
 {
 public:
-	MyFormController();
+
+	PictureBox^ pictureBox;
+
+	MyFormController(PictureBox^ p);
 	~MyFormController();
+
+	void OnFormLoad();
 
 };
 

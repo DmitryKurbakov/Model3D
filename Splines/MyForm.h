@@ -1,5 +1,7 @@
 #pragma once
 
+#include "MyFormController.h"
+
 using namespace System;
 using namespace System::ComponentModel;
 using namespace System::Collections;
@@ -7,18 +9,20 @@ using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
 
-/// <summary>
-/// Сводка для SplinesForm
-/// </summary>
+
 public ref class MyForm : public System::Windows::Forms::Form
 {
+
 public:
+
+	MyFormController^ controller;
+
+
 	MyForm(void)
 	{
 		InitializeComponent();
-		//
-		//TODO: добавьте код конструктора
-		//
+		
+		controller = gcnew MyFormController(this->pictureBox);
 	}
 
 protected:

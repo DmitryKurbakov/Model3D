@@ -135,17 +135,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algorithms.cpp" />
-    <ClCompile Include="Drawing.cpp" />
+    <ClCompile Include="ModelsDrawing.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="MyFormController.cpp" />
+    <ClCompile Include="Tetrahedron.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algorithms.h" />
-    <ClInclude Include="Drawing.h" />
+    <ClInclude Include="ModelsDrawing.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MyFormController.h" />
+    <ClInclude Include="Tetrahedron.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
