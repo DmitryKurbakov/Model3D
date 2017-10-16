@@ -23,6 +23,8 @@ public:
 		InitializeComponent();
 		
 		controller = gcnew MyFormController(this->pictureBox);
+
+		controller->OnFormLoad();
 	}
 
 protected:

@@ -2,7 +2,7 @@
 
 
 
-Tetrahedron::Tetrahedron(array<float, 2>^ t, array<float, 2>^ f)
+Tetrahedron::Tetrahedron(array<float, 2>^ t, array<int, 2>^ f)
 {
 	this->transVertixMatrix = t;
 	this->faceMatrix = f;
@@ -13,37 +13,31 @@ Tetrahedron::Tetrahedron()
 
 	vertixMatrix = gcnew array<float, 2>(6, 3) {
 
-		{ 0., 0., 50. },
-		{ 0., 0., -50. },
-		{ 50., 50., 0. },
-		{ -50., 50., 0. },
-		{ -50., -50., 0. },
-		{ 50., -50., 0. }
+		{ 0., 0., 400. },
+		{ 0., 0., 600. },
+		{ 600., 600., 0. },
+		{ 400., 600., 0. },
+		{ 400., 400., 0. },
+		{ 600., 400., 0. }
 
 	};
 
 
-	faceMatrix = gcnew array<float, 2>(8, 3) {
+	faceMatrix = gcnew array<int, 2>(4, 3) {
 
-		{ 0., 2., 3. },
-		{ 0., 3., 4. },
-		{ 0., 4., 5. },
-		{ 0., 5., 2. },
-		{ 1., 3., 2. },
-		{ 1., 4., 3. },
-		{ 1., 5., 4. },
-		{ 1., 2., 5. },
+		{ 0, 1, 2},
+		{ 0, 1, 3 },
+		{ 0, 2, 3 },
+		{ 1, 2, 3 },
 
 	};
 
-	transVertixMatrix = gcnew array<float, 2>(6, 4) {
+	transVertixMatrix = gcnew array<float, 2>(4, 4) {
 
-		{ 0., 0., 50., 1. },
-		{ 0., 0., -50., 1. },
-		{ 50., 50., 0., 1. },
-		{ -50., 50., 0., 1. },
-		{ -50., -50., 0., 1. },
-		{ 50., -50., 0., 1. }
+		{ 300., 300., 375., 1. },
+		{ 400., 500., 400., 1. },
+		{ 200., 500., 350., 1. },
+		{ 500., 500., 300., 1. },
 
 
 	};
@@ -276,15 +270,15 @@ array<float, 2>^ Tetrahedron::GetSinglePointPerspectiveProjectionMatrix(array<fl
 array<float, 2>^ Tetrahedron::MatrixMultiply(array<float, 2>^ a, array<float, 2>^ b)
 {
 
-	array<float, 2>^ r = gcnew array<float, 2>(6, 4);
+	array<float, 2>^ r = gcnew array<float, 2>(4, 4);
 
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < 4; i++)
 	{
 
 		for (int j = 0; j < 4; j++)
 		{
 
-			for (int k = 0; k < 6; k++)
+			for (int k = 0; k < 4; k++)
 			{
 				r[i, j] += a[i, k] * b[k, j];
 			}

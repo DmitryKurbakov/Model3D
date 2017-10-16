@@ -9,6 +9,8 @@ ref class ModelsDrawing :
 	public Algorithms
 {
 
+	Tetrahedron^ tet;
+
 public:
 
 

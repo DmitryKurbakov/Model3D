@@ -9,10 +9,10 @@ ref class Tetrahedron
 public:
 
 	array<float, 2>^ vertixMatrix;
-	array<float, 2>^ faceMatrix;
+	array<int, 2>^ faceMatrix;
 	array<float, 2>^ transVertixMatrix;
 
-	Tetrahedron(array<float, 2>^ t, array<float, 2>^ f);
+	Tetrahedron(array<float, 2>^ t, array<int, 2>^ f);
 
 	Tetrahedron();
 	~Tetrahedron();
