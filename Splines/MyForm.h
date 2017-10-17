@@ -67,12 +67,23 @@ private: System::Windows::Forms::Label^  label5;
 private: System::Windows::Forms::Label^  label6;
 private: System::Windows::Forms::Label^  label7;
 private: System::Windows::Forms::Label^  label8;
-private: System::Windows::Forms::HScrollBar^  hScrollBar6;
-private: System::Windows::Forms::HScrollBar^  hScrollBar5;
-private: System::Windows::Forms::HScrollBar^  hScrollBar4;
+private: System::Windows::Forms::HScrollBar^  rotationZScrollBar;
+
+private: System::Windows::Forms::HScrollBar^  rotationYScrollBar;
+
+private: System::Windows::Forms::HScrollBar^  rotationXScrollBar;
+
+
 private: System::Windows::Forms::HScrollBar^  shiftZScrollBar;
 private: System::Windows::Forms::HScrollBar^  shiftYScrollBar;
 private: System::Windows::Forms::HScrollBar^  shiftXScrollBar;
+private: System::Windows::Forms::Label^  label9;
+private: System::Windows::Forms::HScrollBar^  scalingZScrollBar;
+private: System::Windows::Forms::HScrollBar^  scalingYScrollBar;
+private: System::Windows::Forms::HScrollBar^  scalingXScrollBar;
+private: System::Windows::Forms::Label^  label10;
+private: System::Windows::Forms::Label^  label11;
+private: System::Windows::Forms::Label^  label12;
 
 
 
@@ -92,6 +103,13 @@ private:
 		this->pictureGroupBox = (gcnew System::Windows::Forms::GroupBox());
 		this->pictureBox = (gcnew System::Windows::Forms::PictureBox());
 		this->toolsGroupBox = (gcnew System::Windows::Forms::GroupBox());
+		this->label8 = (gcnew System::Windows::Forms::Label());
+		this->rotationZScrollBar = (gcnew System::Windows::Forms::HScrollBar());
+		this->rotationYScrollBar = (gcnew System::Windows::Forms::HScrollBar());
+		this->rotationXScrollBar = (gcnew System::Windows::Forms::HScrollBar());
+		this->shiftZScrollBar = (gcnew System::Windows::Forms::HScrollBar());
+		this->shiftYScrollBar = (gcnew System::Windows::Forms::HScrollBar());
+		this->shiftXScrollBar = (gcnew System::Windows::Forms::HScrollBar());
 		this->label5 = (gcnew System::Windows::Forms::Label());
 		this->label6 = (gcnew System::Windows::Forms::Label());
 		this->label7 = (gcnew System::Windows::Forms::Label());
@@ -99,13 +117,13 @@ private:
 		this->label3 = (gcnew System::Windows::Forms::Label());
 		this->label2 = (gcnew System::Windows::Forms::Label());
 		this->label1 = (gcnew System::Windows::Forms::Label());
-		this->shiftXScrollBar = (gcnew System::Windows::Forms::HScrollBar());
-		this->shiftYScrollBar = (gcnew System::Windows::Forms::HScrollBar());
-		this->shiftZScrollBar = (gcnew System::Windows::Forms::HScrollBar());
-		this->hScrollBar4 = (gcnew System::Windows::Forms::HScrollBar());
-		this->hScrollBar5 = (gcnew System::Windows::Forms::HScrollBar());
-		this->hScrollBar6 = (gcnew System::Windows::Forms::HScrollBar());
-		this->label8 = (gcnew System::Windows::Forms::Label());
+		this->label9 = (gcnew System::Windows::Forms::Label());
+		this->scalingZScrollBar = (gcnew System::Windows::Forms::HScrollBar());
+		this->scalingYScrollBar = (gcnew System::Windows::Forms::HScrollBar());
+		this->scalingXScrollBar = (gcnew System::Windows::Forms::HScrollBar());
+		this->label10 = (gcnew System::Windows::Forms::Label());
+		this->label11 = (gcnew System::Windows::Forms::Label());
+		this->label12 = (gcnew System::Windows::Forms::Label());
 		this->pictureGroupBox->SuspendLayout();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox))->BeginInit();
 		this->toolsGroupBox->SuspendLayout();
@@ -138,10 +156,17 @@ private:
 		// 
 		// toolsGroupBox
 		// 
+		this->toolsGroupBox->Controls->Add(this->label9);
+		this->toolsGroupBox->Controls->Add(this->scalingZScrollBar);
+		this->toolsGroupBox->Controls->Add(this->scalingYScrollBar);
+		this->toolsGroupBox->Controls->Add(this->scalingXScrollBar);
+		this->toolsGroupBox->Controls->Add(this->label10);
+		this->toolsGroupBox->Controls->Add(this->label11);
+		this->toolsGroupBox->Controls->Add(this->label12);
 		this->toolsGroupBox->Controls->Add(this->label8);
-		this->toolsGroupBox->Controls->Add(this->hScrollBar6);
-		this->toolsGroupBox->Controls->Add(this->hScrollBar5);
-		this->toolsGroupBox->Controls->Add(this->hScrollBar4);
+		this->toolsGroupBox->Controls->Add(this->rotationZScrollBar);
+		this->toolsGroupBox->Controls->Add(this->rotationYScrollBar);
+		this->toolsGroupBox->Controls->Add(this->rotationXScrollBar);
 		this->toolsGroupBox->Controls->Add(this->shiftZScrollBar);
 		this->toolsGroupBox->Controls->Add(this->shiftYScrollBar);
 		this->toolsGroupBox->Controls->Add(this->shiftXScrollBar);
@@ -159,10 +184,79 @@ private:
 		this->toolsGroupBox->TabStop = false;
 		this->toolsGroupBox->Text = L"Инструменты";
 		// 
+		// label8
+		// 
+		this->label8->AutoSize = true;
+		this->label8->Location = System::Drawing::Point(6, 96);
+		this->label8->Name = L"label8";
+		this->label8->Size = System::Drawing::Size(59, 13);
+		this->label8->TabIndex = 26;
+		this->label8->Text = L"Вращение";
+		// 
+		// rotationZScrollBar
+		// 
+		this->rotationZScrollBar->Location = System::Drawing::Point(23, 143);
+		this->rotationZScrollBar->Maximum = 1000;
+		this->rotationZScrollBar->Name = L"rotationZScrollBar";
+		this->rotationZScrollBar->Size = System::Drawing::Size(80, 17);
+		this->rotationZScrollBar->TabIndex = 25;
+		this->rotationZScrollBar->Value = 500;
+		this->rotationZScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnRZScroll);
+		// 
+		// rotationYScrollBar
+		// 
+		this->rotationYScrollBar->Location = System::Drawing::Point(23, 126);
+		this->rotationYScrollBar->Maximum = 1000;
+		this->rotationYScrollBar->Name = L"rotationYScrollBar";
+		this->rotationYScrollBar->Size = System::Drawing::Size(80, 17);
+		this->rotationYScrollBar->TabIndex = 24;
+		this->rotationYScrollBar->Value = 500;
+		this->rotationYScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnRYScroll);
+		// 
+		// rotationXScrollBar
+		// 
+		this->rotationXScrollBar->Location = System::Drawing::Point(23, 109);
+		this->rotationXScrollBar->Maximum = 1000;
+		this->rotationXScrollBar->Name = L"rotationXScrollBar";
+		this->rotationXScrollBar->Size = System::Drawing::Size(80, 17);
+		this->rotationXScrollBar->TabIndex = 23;
+		this->rotationXScrollBar->Value = 500;
+		this->rotationXScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnRXScroll);
+		// 
+		// shiftZScrollBar
+		// 
+		this->shiftZScrollBar->Location = System::Drawing::Point(23, 69);
+		this->shiftZScrollBar->Maximum = 1000;
+		this->shiftZScrollBar->Name = L"shiftZScrollBar";
+		this->shiftZScrollBar->Size = System::Drawing::Size(80, 17);
+		this->shiftZScrollBar->TabIndex = 22;
+		this->shiftZScrollBar->Value = 500;
+		this->shiftZScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnZScroll);
+		// 
+		// shiftYScrollBar
+		// 
+		this->shiftYScrollBar->Location = System::Drawing::Point(23, 52);
+		this->shiftYScrollBar->Maximum = 1000;
+		this->shiftYScrollBar->Name = L"shiftYScrollBar";
+		this->shiftYScrollBar->Size = System::Drawing::Size(80, 17);
+		this->shiftYScrollBar->TabIndex = 21;
+		this->shiftYScrollBar->Value = 500;
+		this->shiftYScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnYScroll);
+		// 
+		// shiftXScrollBar
+		// 
+		this->shiftXScrollBar->Location = System::Drawing::Point(23, 35);
+		this->shiftXScrollBar->Maximum = 1000;
+		this->shiftXScrollBar->Name = L"shiftXScrollBar";
+		this->shiftXScrollBar->Size = System::Drawing::Size(80, 17);
+		this->shiftXScrollBar->TabIndex = 20;
+		this->shiftXScrollBar->Value = 500;
+		this->shiftXScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnXScroll);
+		// 
 		// label5
 		// 
 		this->label5->AutoSize = true;
-		this->label5->Location = System::Drawing::Point(6, 163);
+		this->label5->Location = System::Drawing::Point(6, 147);
 		this->label5->Name = L"label5";
 		this->label5->Size = System::Drawing::Size(14, 13);
 		this->label5->TabIndex = 19;
@@ -171,7 +265,7 @@ private:
 		// label6
 		// 
 		this->label6->AutoSize = true;
-		this->label6->Location = System::Drawing::Point(6, 142);
+		this->label6->Location = System::Drawing::Point(6, 126);
 		this->label6->Name = L"label6";
 		this->label6->Size = System::Drawing::Size(14, 13);
 		this->label6->TabIndex = 18;
@@ -180,7 +274,7 @@ private:
 		// label7
 		// 
 		this->label7->AutoSize = true;
-		this->label7->Location = System::Drawing::Point(6, 125);
+		this->label7->Location = System::Drawing::Point(6, 109);
 		this->label7->Name = L"label7";
 		this->label7->Size = System::Drawing::Size(14, 13);
 		this->label7->TabIndex = 17;
@@ -222,71 +316,71 @@ private:
 		this->label1->TabIndex = 0;
 		this->label1->Text = L"Перемещение";
 		// 
-		// shiftXScrollBar
+		// label9
 		// 
-		this->shiftXScrollBar->Location = System::Drawing::Point(23, 35);
-		this->shiftXScrollBar->Maximum = 1000;
-		this->shiftXScrollBar->Name = L"shiftXScrollBar";
-		this->shiftXScrollBar->Size = System::Drawing::Size(80, 17);
-		this->shiftXScrollBar->TabIndex = 20;
-		this->shiftXScrollBar->Value = 500;
-		this->shiftXScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnXScroll);
+		this->label9->AutoSize = true;
+		this->label9->Location = System::Drawing::Point(6, 177);
+		this->label9->Name = L"label9";
+		this->label9->Size = System::Drawing::Size(101, 13);
+		this->label9->TabIndex = 33;
+		this->label9->Text = L"Масштабирование";
 		// 
-		// shiftYScrollBar
+		// scalingZScrollBar
 		// 
-		this->shiftYScrollBar->Location = System::Drawing::Point(23, 52);
-		this->shiftYScrollBar->Maximum = 1000;
-		this->shiftYScrollBar->Name = L"shiftYScrollBar";
-		this->shiftYScrollBar->Size = System::Drawing::Size(80, 17);
-		this->shiftYScrollBar->TabIndex = 21;
-		this->shiftYScrollBar->Value = 500;
-		this->shiftYScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnYScroll);
+		this->scalingZScrollBar->Location = System::Drawing::Point(23, 224);
+		this->scalingZScrollBar->Maximum = 1000;
+		this->scalingZScrollBar->Name = L"scalingZScrollBar";
+		this->scalingZScrollBar->Size = System::Drawing::Size(80, 17);
+		this->scalingZScrollBar->TabIndex = 32;
+		this->scalingZScrollBar->Value = 500;
+		this->scalingZScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnZSScroll);
 		// 
-		// shiftZScrollBar
+		// scalingYScrollBar
 		// 
-		this->shiftZScrollBar->Location = System::Drawing::Point(23, 69);
-		this->shiftZScrollBar->Maximum = 1000;
-		this->shiftZScrollBar->Name = L"shiftZScrollBar";
-		this->shiftZScrollBar->Size = System::Drawing::Size(80, 17);
-		this->shiftZScrollBar->TabIndex = 22;
-		this->shiftZScrollBar->Value = 500;
-		this->shiftZScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnZScroll);
+		this->scalingYScrollBar->Location = System::Drawing::Point(23, 207);
+		this->scalingYScrollBar->Maximum = 1000;
+		this->scalingYScrollBar->Name = L"scalingYScrollBar";
+		this->scalingYScrollBar->Size = System::Drawing::Size(80, 17);
+		this->scalingYScrollBar->TabIndex = 31;
+		this->scalingYScrollBar->Value = 500;
+		this->scalingYScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnYSScroll);
 		// 
-		// hScrollBar4
+		// scalingXScrollBar
 		// 
-		this->hScrollBar4->Location = System::Drawing::Point(23, 125);
-		this->hScrollBar4->Maximum = 1000;
-		this->hScrollBar4->Name = L"hScrollBar4";
-		this->hScrollBar4->Size = System::Drawing::Size(80, 17);
-		this->hScrollBar4->TabIndex = 23;
-		this->hScrollBar4->Value = 500;
+		this->scalingXScrollBar->Location = System::Drawing::Point(23, 190);
+		this->scalingXScrollBar->Maximum = 1000;
+		this->scalingXScrollBar->Name = L"scalingXScrollBar";
+		this->scalingXScrollBar->Size = System::Drawing::Size(80, 17);
+		this->scalingXScrollBar->TabIndex = 30;
+		this->scalingXScrollBar->Value = 500;
+		this->scalingXScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnSScroll);
 		// 
-		// hScrollBar5
+		// label10
 		// 
-		this->hScrollBar5->Location = System::Drawing::Point(23, 142);
-		this->hScrollBar5->Maximum = 1000;
-		this->hScrollBar5->Name = L"hScrollBar5";
-		this->hScrollBar5->Size = System::Drawing::Size(80, 17);
-		this->hScrollBar5->TabIndex = 24;
-		this->hScrollBar5->Value = 500;
+		this->label10->AutoSize = true;
+		this->label10->Location = System::Drawing::Point(6, 228);
+		this->label10->Name = L"label10";
+		this->label10->Size = System::Drawing::Size(14, 13);
+		this->label10->TabIndex = 29;
+		this->label10->Text = L"Z";
 		// 
-		// hScrollBar6
+		// label11
 		// 
-		this->hScrollBar6->Location = System::Drawing::Point(23, 159);
-		this->hScrollBar6->Maximum = 1000;
-		this->hScrollBar6->Name = L"hScrollBar6";
-		this->hScrollBar6->Size = System::Drawing::Size(80, 17);
-		this->hScrollBar6->TabIndex = 25;
-		this->hScrollBar6->Value = 500;
+		this->label11->AutoSize = true;
+		this->label11->Location = System::Drawing::Point(6, 207);
+		this->label11->Name = L"label11";
+		this->label11->Size = System::Drawing::Size(14, 13);
+		this->label11->TabIndex = 28;
+		this->label11->Text = L"Y";
 		// 
-		// label8
+		// label12
 		// 
-		this->label8->AutoSize = true;
-		this->label8->Location = System::Drawing::Point(6, 112);
-		this->label8->Name = L"label8";
-		this->label8->Size = System::Drawing::Size(59, 13);
-		this->label8->TabIndex = 26;
-		this->label8->Text = L"Вращение";
+		this->label12->AutoSize = true;
+		this->label12->Location = System::Drawing::Point(6, 190);
+		this->label12->Name = L"label12";
+		this->label12->Size = System::Drawing::Size(14, 13);
+		this->label12->TabIndex = 27;
+		this->label12->Text = L"X";
 		// 
 		// MyForm
 		// 
@@ -312,6 +406,12 @@ private:
 	void OnXScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e);
 	void OnYScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e);
 	void OnZScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e);
+	void OnRXScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e);
+	void OnRYScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e);
+	void OnRZScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e);
+	void OnSScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e);
+	void OnYSScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e);
+	void OnZSScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e);
 };
 
 
@@ -366,4 +466,65 @@ void MyForm::OnZScroll(System::Object ^sender, System::Windows::Forms::ScrollEve
 	if (delta == 0) return;
 
 	controller->OnScroll(2, delta > 0 ? true : false);
+}
+
+
+void MyForm::OnRXScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e)
+{
+	int delta = e->NewValue - e->OldValue;
+
+	if (delta == 0) return;
+
+	controller->OnRotation(0, delta > 0 ? true : false);
+}
+
+
+void MyForm::OnRYScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e)
+{
+
+	int delta = e->NewValue - e->OldValue;
+
+	if (delta == 0) return;
+
+	controller->OnRotation(1, delta > 0 ? true : false);
+}
+
+
+void MyForm::OnRZScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e)
+{
+	int delta = e->NewValue - e->OldValue;
+
+	if (delta == 0) return;
+
+	controller->OnRotation(2, delta > 0 ? true : false);
+}
+
+
+void MyForm::OnSScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e)
+{
+	int delta = e->NewValue - e->OldValue;
+
+	if (delta == 0) return;
+
+	controller->OnScaling(0, delta > 0 ? true : false);
+}
+
+
+void MyForm::OnYSScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e)
+{
+	int delta = e->NewValue - e->OldValue;
+
+	if (delta == 0) return;
+
+	controller->OnScaling(1, delta > 0 ? true : false);
+}
+
+
+void MyForm::OnZSScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e)
+{
+	int delta = e->NewValue - e->OldValue;
+
+	if (delta == 0) return;
+
+	controller->OnScaling(2, delta > 0 ? true : false);
 }

@@ -231,7 +231,7 @@ array<float, 2>^ Tetrahedron::GetShiftsMatrix(array<float, 2>^ m, int dx, int dy
 	return MatrixMultiply(m, t);
 }
 
-array<float, 2>^ Tetrahedron::GetScalingMatrix(array<float, 2>^ m, int p, int q, int r, int s)
+array<float, 2>^ Tetrahedron::GetScalingMatrix(array<float, 2>^ m, float p, float q, float r, float s)
 {
 	array<float, 2>^ t = gcnew array<float, 2>(4, 4) {
 

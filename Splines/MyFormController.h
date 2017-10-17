@@ -27,5 +27,7 @@ public:
 	void OnMarkerMouseMove(Point p);
 	void OnMarkerMouseUp();
 	void OnScroll(int val, bool d);
+	void OnRotation(int val, bool d);
+	void OnScaling(int val, bool d);
 };
 

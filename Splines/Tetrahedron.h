@@ -29,7 +29,7 @@ public:
 
 	array<float, 2>^ GetRotationMatrix(array<float, 2>^ m, int axis, float angle);
 	array<float, 2>^ GetShiftsMatrix(array<float, 2>^ m, int dx, int dy, int dz);
-	array<float, 2>^ GetScalingMatrix(array<float, 2>^ m, int p, int q, int r, int s);
+	array<float, 2>^ GetScalingMatrix(array<float, 2>^ m, float p, float q, float r, float s);
 
 	array<float, 2>^ GetParallelProjectionMatrix(array<float, 2>^ m);
 	array<float, 2>^ GetSinglePointPerspectiveProjectionMatrix(array<float, 2>^ m, int z);
