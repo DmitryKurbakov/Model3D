@@ -11,11 +11,11 @@ ref class ModelsDrawing :
 	public Algorithms
 {
 
-	Tetrahedron^ tet;
+	
 
 public:
 
-	
+	Tetrahedron^ tet;
 
 	ModelsDrawing();
 	~ModelsDrawing();

@@ -6,6 +6,8 @@ Tetrahedron::Tetrahedron(array<float, 2>^ t, array<int, 2>^ f)
 {
 	this->transVertixMatrix = t;
 	this->faceMatrix = f;
+
+	marker = gcnew Marker(250, 200);
 }
 
 Tetrahedron::Tetrahedron()
@@ -34,13 +36,15 @@ Tetrahedron::Tetrahedron()
 
 	transVertixMatrix = gcnew array<float, 2>(4, 4) {
 
-		{ 300., 100., 375., 1. },
-		{ 400., 300., 400., 1. },
-		{ 200., 300., 350., 1. },
-		{ 500., 300., 300., 1. },
+		{ 200., 100., 375., 1. },
+		{ 300., 300., 400., 1. },
+		{ 100., 300., 350., 1. },
+		{ 400., 200., 300., 1. },
 
 
 	};
+
+	marker = gcnew Marker(250, 200);
 
 }
 

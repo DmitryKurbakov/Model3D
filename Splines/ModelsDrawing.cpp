@@ -3,7 +3,6 @@
 ModelsDrawing::ModelsDrawing()
 {
 	tet = gcnew Tetrahedron();
-	
 }
 
 
@@ -38,6 +37,11 @@ Bitmap ^ ModelsDrawing::DrawTetrahedron(Bitmap^ bm)
 			
 		}
 	}
+
+	delete points;
+	delete r;
+	delete gr;
+	delete p;
 
 	return bm;
 }
