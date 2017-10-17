@@ -14,7 +14,7 @@ Bitmap ^ ModelsDrawing::DrawTetrahedron(Bitmap^ bm)
 {
 	
 	Graphics^ gr = Graphics::FromImage(bm);
-	Pen^ p = gcnew Pen(Color::Blue, 3);
+	Pen^ p = gcnew Pen(Color::Blue, 2);
 
 	//tt = tet->GetRotationMatrix(tt, 2, 0.3);
 	List<PointF>^ points = GetListOfTetrahedronPoints(tet->GetParallelProjectionMatrix(tet->transVertixMatrix));

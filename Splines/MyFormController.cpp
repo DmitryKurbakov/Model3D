@@ -103,7 +103,7 @@ void MyFormController::OnRotation(int val, bool d)
 	int delta = d ? 10 : -10;
 
 	mod->tet->transVertixMatrix = mod->tet->GetRotationMatrix(mod->tet->transVertixMatrix,
-		val,  PI * delta / 540
+		val,   PI * delta / 180
 	);
 
 	resultBitmap = mod->DrawTetrahedron(resultBitmap);

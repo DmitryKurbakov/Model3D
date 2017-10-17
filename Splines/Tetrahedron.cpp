@@ -36,10 +36,10 @@ Tetrahedron::Tetrahedron()
 
 	transVertixMatrix = gcnew array<float, 2>(4, 4) {
 
-		{ 200., 100., 375., 1. },
-		{ 300., 300., 400., 1. },
-		{ 100., 300., 350., 1. },
-		{ 400., 200., 300., 1. },
+		{ 200., 100., 10., 1. },
+		{ 300., 300., 15., 1. },
+		{ 100., 300., 15., 1. },
+		{ 400., 200., 0., 1. },
 
 
 	};
@@ -172,7 +172,7 @@ array<float, 2>^ Tetrahedron::GetRotationMatrix(array<float, 2>^ m, int axis, fl
 
 		t = gcnew array<float, 2>(4, 4) {
 
-			{ 1., 0., 0., 0. },
+			{ 1.,	0.,			0.,		0. },
 			{ 0.,	cos,		sin,	0. },
 			{ 0.,	-1. * sin,	cos,	0. },
 			{ 0.,	0.,			0.,		1. },
@@ -202,7 +202,7 @@ array<float, 2>^ Tetrahedron::GetRotationMatrix(array<float, 2>^ m, int axis, fl
 
 		t = gcnew array<float, 2>(4, 4) {
 
-			{ cos, sin, 0., 0. },
+			{ cos,		sin,	0., 0. },
 			{ -1 * sin,	cos,	0.,	0. },
 			{ 0.,		0.,		1.,	0. },
 			{ 0.,		0.,		0.,	1. },
