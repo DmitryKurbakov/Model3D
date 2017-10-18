@@ -20,7 +20,8 @@ public:
 	ModelsDrawing();
 	~ModelsDrawing();
 
-	Bitmap^ DrawTetrahedron(Bitmap^ bm);
+	Bitmap^ DrawTetrahedron(Bitmap^ bm, int mode, float z);
+	//Bitmap^ DrawTetrahedronUsingPerspectiveProjection(Bitmap^ bm);
 
 	List<PointF>^ GetListOfTetrahedronPoints(array<float, 2>^ m); 
 };

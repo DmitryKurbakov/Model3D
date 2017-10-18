@@ -141,6 +141,30 @@ void Tetrahedron::MakeFaceMatrix()
 
 }
 
+array<float, 2>^ MatrixMultiply(array<float, 2>^ a, array<float, 2>^ b)
+{
+
+	array<float, 2>^ r = gcnew array<float, 2>(4, 4);
+
+	for (int i = 0; i < 4; i++)
+	{
+
+		for (int j = 0; j < 4; j++)
+		{
+
+			for (int k = 0; k < 4; k++)
+			{
+				r[i, j] += a[i, k] * b[k, j];
+			}
+
+		}
+
+	}
+
+	return r;
+
+}
+
 array<float, 2>^ Tetrahedron::HomogeneousCoordinateMethod(array<float, 2>^ m)
 {
 	array<float, 2>^ result = gcnew array<float, 2>(6, 4) {
@@ -258,7 +282,7 @@ array<float, 2>^ Tetrahedron::GetParallelProjectionMatrix(array<float, 2>^ m)
 	return MatrixMultiply(m, t);
 }
 
-array<float, 2>^ Tetrahedron::GetSinglePointPerspectiveProjectionMatrix(array<float, 2>^ m, int z)
+array<float, 2>^ Tetrahedron::GetSinglePointPerspectiveProjectionMatrix(array<float, 2>^ m, float z)
 {
 	array<float, 2>^ t = gcnew array<float, 2>(4, 4) {
 
@@ -268,32 +292,25 @@ array<float, 2>^ Tetrahedron::GetSinglePointPerspectiveProjectionMatrix(array<fl
 		{ 0., 0., 0., 1. },
 	};
 
-	return MatrixMultiply(m, t);
+	t = MatrixMultiply(m, t);
+
+	return t;
 }
 
-array<float, 2>^ Tetrahedron::MatrixMultiply(array<float, 2>^ a, array<float, 2>^ b)
+array<float, 2>^ Tetrahedron::GetParallelProjectionPoints(array<float, 2>^ m)
 {
-
-	array<float, 2>^ r = gcnew array<float, 2>(4, 4);
-
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < m->GetLength(0); i++)
 	{
-
-		for (int j = 0; j < 4; j++)
-		{
-
-			for (int k = 0; k < 4; k++)
-			{
-				r[i, j] += a[i, k] * b[k, j];
-			}
-
-		}
-
+		m[i, 0] /= m[i, 3];
+		m[i, 1] /= m[i, 3];
 	}
 
-	return r;
-
+	return m;
 }
+
+
+
+
 
 
 

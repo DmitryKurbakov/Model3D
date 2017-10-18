@@ -16,6 +16,7 @@ public:
 	Point cursor;
 
 	int mode = 0;
+	float z = -40;
 
 	//int delta = 500;
 

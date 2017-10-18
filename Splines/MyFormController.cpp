@@ -22,10 +22,10 @@ MyFormController::~MyFormController()
 void MyFormController::OnFormLoad()
 {
 
-	Bitmap^ inputBitmap = gcnew Bitmap(pictureBox->Image);
+	//Bitmap^ inputBitmap = gcnew Bitmap(pictureBox->Image);
 	Bitmap^ resultBitmap = gcnew Bitmap(pictureBox->Image->Width, pictureBox->Image->Height);
 
-	resultBitmap = mod->DrawTetrahedron(inputBitmap);
+	resultBitmap = mod->DrawTetrahedron(resultBitmap, mode, z);
 
 	delete pictureBox->Image;
 	pictureBox->Image = resultBitmap;
@@ -55,7 +55,7 @@ void MyFormController::OnMarkerMouseMove(Point p)
 
 			0);
 
-		resultBitmap = mod->DrawTetrahedron(resultBitmap);
+		resultBitmap = mod->DrawTetrahedron(resultBitmap, mode, z);
 	}
 	
 	cursor = p;
@@ -83,7 +83,7 @@ void MyFormController::OnScroll(int val, bool d)
 		val == 2 ? delta : 0
 	);
 
-	resultBitmap = mod->DrawTetrahedron(resultBitmap);
+	resultBitmap = mod->DrawTetrahedron(resultBitmap, mode, z);
 
 	//delta = d;
 
@@ -106,7 +106,7 @@ void MyFormController::OnRotation(int val, bool d)
 		val,   PI * delta / 180
 	);
 
-	resultBitmap = mod->DrawTetrahedron(resultBitmap);
+	resultBitmap = mod->DrawTetrahedron(resultBitmap, mode, z);
 
 	//delta = d;
 
@@ -131,7 +131,7 @@ void MyFormController::OnScaling(int val, bool d)
 		1
 	);
 
-	resultBitmap = mod->DrawTetrahedron(resultBitmap);
+	resultBitmap = mod->DrawTetrahedron(resultBitmap, mode, z);
 
 	//delta = d;
 

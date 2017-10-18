@@ -52,17 +52,6 @@ private: System::Windows::Forms::Label^  label2;
 
 private: System::Windows::Forms::Label^  label1;
 
-
-
-
-
-
-
-
-
-
-
-
 private: System::Windows::Forms::Label^  label5;
 private: System::Windows::Forms::Label^  label6;
 private: System::Windows::Forms::Label^  label7;
@@ -84,6 +73,11 @@ private: System::Windows::Forms::HScrollBar^  scalingXScrollBar;
 private: System::Windows::Forms::Label^  label10;
 private: System::Windows::Forms::Label^  label11;
 private: System::Windows::Forms::Label^  label12;
+private: System::Windows::Forms::Label^  label13;
+private: System::Windows::Forms::TextBox^  z0TextBox;
+private: System::Windows::Forms::RadioButton^  perspectiveProjectionRadioButton;
+private: System::Windows::Forms::RadioButton^  parallelProjectionRadioButton;
+private: System::Windows::Forms::Button^  button1;
 
 
 
@@ -103,6 +97,18 @@ private:
 		this->pictureGroupBox = (gcnew System::Windows::Forms::GroupBox());
 		this->pictureBox = (gcnew System::Windows::Forms::PictureBox());
 		this->toolsGroupBox = (gcnew System::Windows::Forms::GroupBox());
+		this->button1 = (gcnew System::Windows::Forms::Button());
+		this->label13 = (gcnew System::Windows::Forms::Label());
+		this->z0TextBox = (gcnew System::Windows::Forms::TextBox());
+		this->perspectiveProjectionRadioButton = (gcnew System::Windows::Forms::RadioButton());
+		this->parallelProjectionRadioButton = (gcnew System::Windows::Forms::RadioButton());
+		this->label9 = (gcnew System::Windows::Forms::Label());
+		this->scalingZScrollBar = (gcnew System::Windows::Forms::HScrollBar());
+		this->scalingYScrollBar = (gcnew System::Windows::Forms::HScrollBar());
+		this->scalingXScrollBar = (gcnew System::Windows::Forms::HScrollBar());
+		this->label10 = (gcnew System::Windows::Forms::Label());
+		this->label11 = (gcnew System::Windows::Forms::Label());
+		this->label12 = (gcnew System::Windows::Forms::Label());
 		this->label8 = (gcnew System::Windows::Forms::Label());
 		this->rotationZScrollBar = (gcnew System::Windows::Forms::HScrollBar());
 		this->rotationYScrollBar = (gcnew System::Windows::Forms::HScrollBar());
@@ -117,13 +123,6 @@ private:
 		this->label3 = (gcnew System::Windows::Forms::Label());
 		this->label2 = (gcnew System::Windows::Forms::Label());
 		this->label1 = (gcnew System::Windows::Forms::Label());
-		this->label9 = (gcnew System::Windows::Forms::Label());
-		this->scalingZScrollBar = (gcnew System::Windows::Forms::HScrollBar());
-		this->scalingYScrollBar = (gcnew System::Windows::Forms::HScrollBar());
-		this->scalingXScrollBar = (gcnew System::Windows::Forms::HScrollBar());
-		this->label10 = (gcnew System::Windows::Forms::Label());
-		this->label11 = (gcnew System::Windows::Forms::Label());
-		this->label12 = (gcnew System::Windows::Forms::Label());
 		this->pictureGroupBox->SuspendLayout();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox))->BeginInit();
 		this->toolsGroupBox->SuspendLayout();
@@ -135,9 +134,9 @@ private:
 			| System::Windows::Forms::AnchorStyles::Left)
 			| System::Windows::Forms::AnchorStyles::Right));
 		this->pictureGroupBox->Controls->Add(this->pictureBox);
-		this->pictureGroupBox->Location = System::Drawing::Point(156, 12);
+		this->pictureGroupBox->Location = System::Drawing::Point(184, 12);
 		this->pictureGroupBox->Name = L"pictureGroupBox";
-		this->pictureGroupBox->Size = System::Drawing::Size(560, 452);
+		this->pictureGroupBox->Size = System::Drawing::Size(532, 452);
 		this->pictureGroupBox->TabIndex = 0;
 		this->pictureGroupBox->TabStop = false;
 		this->pictureGroupBox->Text = L"Изображение";
@@ -150,12 +149,17 @@ private:
 		this->pictureBox->BackColor = System::Drawing::SystemColors::ControlLightLight;
 		this->pictureBox->Location = System::Drawing::Point(6, 19);
 		this->pictureBox->Name = L"pictureBox";
-		this->pictureBox->Size = System::Drawing::Size(548, 427);
+		this->pictureBox->Size = System::Drawing::Size(520, 427);
 		this->pictureBox->TabIndex = 0;
 		this->pictureBox->TabStop = false;
 		// 
 		// toolsGroupBox
 		// 
+		this->toolsGroupBox->Controls->Add(this->button1);
+		this->toolsGroupBox->Controls->Add(this->label13);
+		this->toolsGroupBox->Controls->Add(this->z0TextBox);
+		this->toolsGroupBox->Controls->Add(this->perspectiveProjectionRadioButton);
+		this->toolsGroupBox->Controls->Add(this->parallelProjectionRadioButton);
 		this->toolsGroupBox->Controls->Add(this->label9);
 		this->toolsGroupBox->Controls->Add(this->scalingZScrollBar);
 		this->toolsGroupBox->Controls->Add(this->scalingYScrollBar);
@@ -179,147 +183,68 @@ private:
 		this->toolsGroupBox->Controls->Add(this->label1);
 		this->toolsGroupBox->Location = System::Drawing::Point(12, 12);
 		this->toolsGroupBox->Name = L"toolsGroupBox";
-		this->toolsGroupBox->Size = System::Drawing::Size(138, 452);
+		this->toolsGroupBox->Size = System::Drawing::Size(166, 452);
 		this->toolsGroupBox->TabIndex = 1;
 		this->toolsGroupBox->TabStop = false;
 		this->toolsGroupBox->Text = L"Инструменты";
 		// 
-		// label8
+		// button1
 		// 
-		this->label8->AutoSize = true;
-		this->label8->Location = System::Drawing::Point(6, 96);
-		this->label8->Name = L"label8";
-		this->label8->Size = System::Drawing::Size(59, 13);
-		this->label8->TabIndex = 26;
-		this->label8->Text = L"Вращение";
+		this->button1->Enabled = false;
+		this->button1->Location = System::Drawing::Point(125, 63);
+		this->button1->Name = L"button1";
+		this->button1->Size = System::Drawing::Size(35, 23);
+		this->button1->TabIndex = 38;
+		this->button1->Text = L"ОК";
+		this->button1->UseVisualStyleBackColor = true;
+		this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 		// 
-		// rotationZScrollBar
+		// label13
 		// 
-		this->rotationZScrollBar->Location = System::Drawing::Point(23, 143);
-		this->rotationZScrollBar->Maximum = 1000;
-		this->rotationZScrollBar->Name = L"rotationZScrollBar";
-		this->rotationZScrollBar->Size = System::Drawing::Size(80, 17);
-		this->rotationZScrollBar->TabIndex = 25;
-		this->rotationZScrollBar->Value = 500;
-		this->rotationZScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnRZScroll);
+		this->label13->AutoSize = true;
+		this->label13->Location = System::Drawing::Point(51, 68);
+		this->label13->Name = L"label13";
+		this->label13->Size = System::Drawing::Size(23, 13);
+		this->label13->TabIndex = 37;
+		this->label13->Text = L"Z0:";
 		// 
-		// rotationYScrollBar
+		// z0TextBox
 		// 
-		this->rotationYScrollBar->Location = System::Drawing::Point(23, 126);
-		this->rotationYScrollBar->Maximum = 1000;
-		this->rotationYScrollBar->Name = L"rotationYScrollBar";
-		this->rotationYScrollBar->Size = System::Drawing::Size(80, 17);
-		this->rotationYScrollBar->TabIndex = 24;
-		this->rotationYScrollBar->Value = 500;
-		this->rotationYScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnRYScroll);
+		this->z0TextBox->Enabled = false;
+		this->z0TextBox->Location = System::Drawing::Point(80, 65);
+		this->z0TextBox->Name = L"z0TextBox";
+		this->z0TextBox->Size = System::Drawing::Size(39, 20);
+		this->z0TextBox->TabIndex = 36;
+		this->z0TextBox->Text = L"-10";
 		// 
-		// rotationXScrollBar
+		// perspectiveProjectionRadioButton
 		// 
-		this->rotationXScrollBar->Location = System::Drawing::Point(23, 109);
-		this->rotationXScrollBar->Maximum = 1000;
-		this->rotationXScrollBar->Name = L"rotationXScrollBar";
-		this->rotationXScrollBar->Size = System::Drawing::Size(80, 17);
-		this->rotationXScrollBar->TabIndex = 23;
-		this->rotationXScrollBar->Value = 500;
-		this->rotationXScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnRXScroll);
+		this->perspectiveProjectionRadioButton->AutoSize = true;
+		this->perspectiveProjectionRadioButton->Location = System::Drawing::Point(11, 42);
+		this->perspectiveProjectionRadioButton->Name = L"perspectiveProjectionRadioButton";
+		this->perspectiveProjectionRadioButton->Size = System::Drawing::Size(155, 17);
+		this->perspectiveProjectionRadioButton->TabIndex = 35;
+		this->perspectiveProjectionRadioButton->Text = L"Перспективная проекция";
+		this->perspectiveProjectionRadioButton->UseVisualStyleBackColor = true;
+		this->perspectiveProjectionRadioButton->CheckedChanged += gcnew System::EventHandler(this, &MyForm::OnCheckedChanged);
 		// 
-		// shiftZScrollBar
+		// parallelProjectionRadioButton
 		// 
-		this->shiftZScrollBar->Location = System::Drawing::Point(23, 69);
-		this->shiftZScrollBar->Maximum = 1000;
-		this->shiftZScrollBar->Name = L"shiftZScrollBar";
-		this->shiftZScrollBar->Size = System::Drawing::Size(80, 17);
-		this->shiftZScrollBar->TabIndex = 22;
-		this->shiftZScrollBar->Value = 500;
-		this->shiftZScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnZScroll);
-		// 
-		// shiftYScrollBar
-		// 
-		this->shiftYScrollBar->Location = System::Drawing::Point(23, 52);
-		this->shiftYScrollBar->Maximum = 1000;
-		this->shiftYScrollBar->Name = L"shiftYScrollBar";
-		this->shiftYScrollBar->Size = System::Drawing::Size(80, 17);
-		this->shiftYScrollBar->TabIndex = 21;
-		this->shiftYScrollBar->Value = 500;
-		this->shiftYScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnYScroll);
-		// 
-		// shiftXScrollBar
-		// 
-		this->shiftXScrollBar->Location = System::Drawing::Point(23, 35);
-		this->shiftXScrollBar->Maximum = 1000;
-		this->shiftXScrollBar->Name = L"shiftXScrollBar";
-		this->shiftXScrollBar->Size = System::Drawing::Size(80, 17);
-		this->shiftXScrollBar->TabIndex = 20;
-		this->shiftXScrollBar->Value = 500;
-		this->shiftXScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnXScroll);
-		// 
-		// label5
-		// 
-		this->label5->AutoSize = true;
-		this->label5->Location = System::Drawing::Point(6, 147);
-		this->label5->Name = L"label5";
-		this->label5->Size = System::Drawing::Size(14, 13);
-		this->label5->TabIndex = 19;
-		this->label5->Text = L"Z";
-		// 
-		// label6
-		// 
-		this->label6->AutoSize = true;
-		this->label6->Location = System::Drawing::Point(6, 126);
-		this->label6->Name = L"label6";
-		this->label6->Size = System::Drawing::Size(14, 13);
-		this->label6->TabIndex = 18;
-		this->label6->Text = L"Y";
-		// 
-		// label7
-		// 
-		this->label7->AutoSize = true;
-		this->label7->Location = System::Drawing::Point(6, 109);
-		this->label7->Name = L"label7";
-		this->label7->Size = System::Drawing::Size(14, 13);
-		this->label7->TabIndex = 17;
-		this->label7->Text = L"X";
-		// 
-		// label4
-		// 
-		this->label4->AutoSize = true;
-		this->label4->Location = System::Drawing::Point(6, 69);
-		this->label4->Name = L"label4";
-		this->label4->Size = System::Drawing::Size(14, 13);
-		this->label4->TabIndex = 6;
-		this->label4->Text = L"Z";
-		// 
-		// label3
-		// 
-		this->label3->AutoSize = true;
-		this->label3->Location = System::Drawing::Point(6, 52);
-		this->label3->Name = L"label3";
-		this->label3->Size = System::Drawing::Size(14, 13);
-		this->label3->TabIndex = 4;
-		this->label3->Text = L"Y";
-		// 
-		// label2
-		// 
-		this->label2->AutoSize = true;
-		this->label2->Location = System::Drawing::Point(6, 35);
-		this->label2->Name = L"label2";
-		this->label2->Size = System::Drawing::Size(14, 13);
-		this->label2->TabIndex = 2;
-		this->label2->Text = L"X";
-		// 
-		// label1
-		// 
-		this->label1->AutoSize = true;
-		this->label1->Location = System::Drawing::Point(6, 19);
-		this->label1->Name = L"label1";
-		this->label1->Size = System::Drawing::Size(80, 13);
-		this->label1->TabIndex = 0;
-		this->label1->Text = L"Перемещение";
+		this->parallelProjectionRadioButton->AutoSize = true;
+		this->parallelProjectionRadioButton->Checked = true;
+		this->parallelProjectionRadioButton->Location = System::Drawing::Point(11, 19);
+		this->parallelProjectionRadioButton->Name = L"parallelProjectionRadioButton";
+		this->parallelProjectionRadioButton->Size = System::Drawing::Size(150, 17);
+		this->parallelProjectionRadioButton->TabIndex = 34;
+		this->parallelProjectionRadioButton->TabStop = true;
+		this->parallelProjectionRadioButton->Text = L"Параллельная проекция";
+		this->parallelProjectionRadioButton->UseVisualStyleBackColor = true;
+		this->parallelProjectionRadioButton->CheckedChanged += gcnew System::EventHandler(this, &MyForm::OnCheckedChanged);
 		// 
 		// label9
 		// 
 		this->label9->AutoSize = true;
-		this->label9->Location = System::Drawing::Point(6, 177);
+		this->label9->Location = System::Drawing::Point(6, 257);
 		this->label9->Name = L"label9";
 		this->label9->Size = System::Drawing::Size(101, 13);
 		this->label9->TabIndex = 33;
@@ -327,30 +252,30 @@ private:
 		// 
 		// scalingZScrollBar
 		// 
-		this->scalingZScrollBar->Location = System::Drawing::Point(23, 224);
+		this->scalingZScrollBar->Location = System::Drawing::Point(23, 304);
 		this->scalingZScrollBar->Maximum = 1000;
 		this->scalingZScrollBar->Name = L"scalingZScrollBar";
-		this->scalingZScrollBar->Size = System::Drawing::Size(80, 17);
+		this->scalingZScrollBar->Size = System::Drawing::Size(131, 17);
 		this->scalingZScrollBar->TabIndex = 32;
 		this->scalingZScrollBar->Value = 500;
 		this->scalingZScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnZSScroll);
 		// 
 		// scalingYScrollBar
 		// 
-		this->scalingYScrollBar->Location = System::Drawing::Point(23, 207);
+		this->scalingYScrollBar->Location = System::Drawing::Point(23, 287);
 		this->scalingYScrollBar->Maximum = 1000;
 		this->scalingYScrollBar->Name = L"scalingYScrollBar";
-		this->scalingYScrollBar->Size = System::Drawing::Size(80, 17);
+		this->scalingYScrollBar->Size = System::Drawing::Size(131, 17);
 		this->scalingYScrollBar->TabIndex = 31;
 		this->scalingYScrollBar->Value = 500;
 		this->scalingYScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnYSScroll);
 		// 
 		// scalingXScrollBar
 		// 
-		this->scalingXScrollBar->Location = System::Drawing::Point(23, 190);
+		this->scalingXScrollBar->Location = System::Drawing::Point(23, 270);
 		this->scalingXScrollBar->Maximum = 1000;
 		this->scalingXScrollBar->Name = L"scalingXScrollBar";
-		this->scalingXScrollBar->Size = System::Drawing::Size(80, 17);
+		this->scalingXScrollBar->Size = System::Drawing::Size(131, 17);
 		this->scalingXScrollBar->TabIndex = 30;
 		this->scalingXScrollBar->Value = 500;
 		this->scalingXScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnSScroll);
@@ -358,7 +283,7 @@ private:
 		// label10
 		// 
 		this->label10->AutoSize = true;
-		this->label10->Location = System::Drawing::Point(6, 228);
+		this->label10->Location = System::Drawing::Point(6, 308);
 		this->label10->Name = L"label10";
 		this->label10->Size = System::Drawing::Size(14, 13);
 		this->label10->TabIndex = 29;
@@ -367,7 +292,7 @@ private:
 		// label11
 		// 
 		this->label11->AutoSize = true;
-		this->label11->Location = System::Drawing::Point(6, 207);
+		this->label11->Location = System::Drawing::Point(6, 287);
 		this->label11->Name = L"label11";
 		this->label11->Size = System::Drawing::Size(14, 13);
 		this->label11->TabIndex = 28;
@@ -376,11 +301,143 @@ private:
 		// label12
 		// 
 		this->label12->AutoSize = true;
-		this->label12->Location = System::Drawing::Point(6, 190);
+		this->label12->Location = System::Drawing::Point(6, 270);
 		this->label12->Name = L"label12";
 		this->label12->Size = System::Drawing::Size(14, 13);
 		this->label12->TabIndex = 27;
 		this->label12->Text = L"X";
+		// 
+		// label8
+		// 
+		this->label8->AutoSize = true;
+		this->label8->Location = System::Drawing::Point(6, 176);
+		this->label8->Name = L"label8";
+		this->label8->Size = System::Drawing::Size(59, 13);
+		this->label8->TabIndex = 26;
+		this->label8->Text = L"Вращение";
+		// 
+		// rotationZScrollBar
+		// 
+		this->rotationZScrollBar->Location = System::Drawing::Point(23, 223);
+		this->rotationZScrollBar->Maximum = 1000;
+		this->rotationZScrollBar->Name = L"rotationZScrollBar";
+		this->rotationZScrollBar->Size = System::Drawing::Size(131, 17);
+		this->rotationZScrollBar->TabIndex = 25;
+		this->rotationZScrollBar->Value = 500;
+		this->rotationZScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnRZScroll);
+		// 
+		// rotationYScrollBar
+		// 
+		this->rotationYScrollBar->Location = System::Drawing::Point(23, 206);
+		this->rotationYScrollBar->Maximum = 1000;
+		this->rotationYScrollBar->Name = L"rotationYScrollBar";
+		this->rotationYScrollBar->Size = System::Drawing::Size(131, 17);
+		this->rotationYScrollBar->TabIndex = 24;
+		this->rotationYScrollBar->Value = 500;
+		this->rotationYScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnRYScroll);
+		// 
+		// rotationXScrollBar
+		// 
+		this->rotationXScrollBar->Location = System::Drawing::Point(23, 189);
+		this->rotationXScrollBar->Maximum = 1000;
+		this->rotationXScrollBar->Name = L"rotationXScrollBar";
+		this->rotationXScrollBar->Size = System::Drawing::Size(131, 17);
+		this->rotationXScrollBar->TabIndex = 23;
+		this->rotationXScrollBar->Value = 500;
+		this->rotationXScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnRXScroll);
+		// 
+		// shiftZScrollBar
+		// 
+		this->shiftZScrollBar->Location = System::Drawing::Point(23, 149);
+		this->shiftZScrollBar->Maximum = 1000;
+		this->shiftZScrollBar->Name = L"shiftZScrollBar";
+		this->shiftZScrollBar->Size = System::Drawing::Size(131, 17);
+		this->shiftZScrollBar->TabIndex = 22;
+		this->shiftZScrollBar->Value = 500;
+		this->shiftZScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnZScroll);
+		// 
+		// shiftYScrollBar
+		// 
+		this->shiftYScrollBar->Location = System::Drawing::Point(23, 132);
+		this->shiftYScrollBar->Maximum = 1000;
+		this->shiftYScrollBar->Name = L"shiftYScrollBar";
+		this->shiftYScrollBar->Size = System::Drawing::Size(131, 17);
+		this->shiftYScrollBar->TabIndex = 21;
+		this->shiftYScrollBar->Value = 500;
+		this->shiftYScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnYScroll);
+		// 
+		// shiftXScrollBar
+		// 
+		this->shiftXScrollBar->Location = System::Drawing::Point(23, 115);
+		this->shiftXScrollBar->Maximum = 1000;
+		this->shiftXScrollBar->Name = L"shiftXScrollBar";
+		this->shiftXScrollBar->Size = System::Drawing::Size(131, 17);
+		this->shiftXScrollBar->TabIndex = 20;
+		this->shiftXScrollBar->Value = 500;
+		this->shiftXScrollBar->Scroll += gcnew System::Windows::Forms::ScrollEventHandler(this, &MyForm::OnXScroll);
+		// 
+		// label5
+		// 
+		this->label5->AutoSize = true;
+		this->label5->Location = System::Drawing::Point(6, 227);
+		this->label5->Name = L"label5";
+		this->label5->Size = System::Drawing::Size(14, 13);
+		this->label5->TabIndex = 19;
+		this->label5->Text = L"Z";
+		// 
+		// label6
+		// 
+		this->label6->AutoSize = true;
+		this->label6->Location = System::Drawing::Point(6, 206);
+		this->label6->Name = L"label6";
+		this->label6->Size = System::Drawing::Size(14, 13);
+		this->label6->TabIndex = 18;
+		this->label6->Text = L"Y";
+		// 
+		// label7
+		// 
+		this->label7->AutoSize = true;
+		this->label7->Location = System::Drawing::Point(6, 189);
+		this->label7->Name = L"label7";
+		this->label7->Size = System::Drawing::Size(14, 13);
+		this->label7->TabIndex = 17;
+		this->label7->Text = L"X";
+		// 
+		// label4
+		// 
+		this->label4->AutoSize = true;
+		this->label4->Location = System::Drawing::Point(6, 149);
+		this->label4->Name = L"label4";
+		this->label4->Size = System::Drawing::Size(14, 13);
+		this->label4->TabIndex = 6;
+		this->label4->Text = L"Z";
+		// 
+		// label3
+		// 
+		this->label3->AutoSize = true;
+		this->label3->Location = System::Drawing::Point(6, 132);
+		this->label3->Name = L"label3";
+		this->label3->Size = System::Drawing::Size(14, 13);
+		this->label3->TabIndex = 4;
+		this->label3->Text = L"Y";
+		// 
+		// label2
+		// 
+		this->label2->AutoSize = true;
+		this->label2->Location = System::Drawing::Point(6, 115);
+		this->label2->Name = L"label2";
+		this->label2->Size = System::Drawing::Size(14, 13);
+		this->label2->TabIndex = 2;
+		this->label2->Text = L"X";
+		// 
+		// label1
+		// 
+		this->label1->AutoSize = true;
+		this->label1->Location = System::Drawing::Point(6, 99);
+		this->label1->Name = L"label1";
+		this->label1->Size = System::Drawing::Size(80, 13);
+		this->label1->TabIndex = 0;
+		this->label1->Text = L"Перемещение";
 		// 
 		// MyForm
 		// 
@@ -412,6 +469,29 @@ private:
 	void OnSScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e);
 	void OnYSScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e);
 	void OnZSScroll(System::Object ^sender, System::Windows::Forms::ScrollEventArgs ^e);
+	void OnCheckedChanged(System::Object ^sender, System::EventArgs ^e);
+	void OnTextChanged(System::Object ^sender, System::EventArgs ^e);
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+
+	try
+	{
+		controller->z = (float)Double::Parse(z0TextBox->Text);
+		controller->OnFormLoad();
+	}
+	catch (Exception^ ex)
+	{
+		MessageBox::Show(
+			"Введите новое значение Z0",
+			"Неверное значение",
+			MessageBoxButtons::OK,
+			MessageBoxIcon::Error
+		);
+
+		return;
+	}
+
+
+}
 };
 
 
@@ -527,4 +607,51 @@ void MyForm::OnZSScroll(System::Object ^sender, System::Windows::Forms::ScrollEv
 	if (delta == 0) return;
 
 	controller->OnScaling(2, delta > 0 ? true : false);
+}
+
+
+void MyForm::OnCheckedChanged(System::Object ^sender, System::EventArgs ^e)
+{
+
+	
+
+	if (perspectiveProjectionRadioButton->Checked)
+	{
+		z0TextBox->Enabled = true;
+		button1->Enabled = true;
+		try
+		{
+			controller->z = (float)Double::Parse(z0TextBox->Text);
+		}
+		catch (Exception^ ex)
+		{
+			MessageBox::Show(
+				"Введите новое значение Z0",
+				"Неверное значение",
+				MessageBoxButtons::OK,
+				MessageBoxIcon::Error
+				);
+
+			return;
+		}
+
+		
+		
+	}
+	else
+	{
+		z0TextBox->Enabled = false;
+		button1->Enabled = false;
+	}
+
+	controller->mode = parallelProjectionRadioButton->Checked ? 0 : 1;
+
+	controller->OnFormLoad();
+}
+
+
+void MyForm::OnTextChanged(System::Object ^sender, System::EventArgs ^e)
+{
+	
+
 }

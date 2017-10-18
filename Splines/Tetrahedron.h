@@ -32,9 +32,10 @@ public:
 	array<float, 2>^ GetScalingMatrix(array<float, 2>^ m, float p, float q, float r, float s);
 
 	array<float, 2>^ GetParallelProjectionMatrix(array<float, 2>^ m);
-	array<float, 2>^ GetSinglePointPerspectiveProjectionMatrix(array<float, 2>^ m, int z);
+	array<float, 2>^ GetSinglePointPerspectiveProjectionMatrix(array<float, 2>^ m, float z);
 
-	array<float, 2>^ MatrixMultiply(array<float, 2>^ a, array<float, 2>^ b);
+	array<float, 2>^ GetParallelProjectionPoints(array<float, 2>^ m);
+	//array<float, 2>^ MatrixMultiply(array<float, 2>^ a, array<float, 2>^ b);
 
 	
 };
