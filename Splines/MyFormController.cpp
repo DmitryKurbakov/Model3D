@@ -5,7 +5,7 @@
 MyFormController::MyFormController(PictureBox^ p)
 {
 	this->pictureBox = p;
-	this->pictureBox->Image = gcnew Bitmap(1920, 1080);
+	this->pictureBox->Image = gcnew Bitmap(696, 444);
 
 	this->mod = gcnew ModelsDrawing();
 

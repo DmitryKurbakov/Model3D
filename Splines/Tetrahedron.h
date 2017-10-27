@@ -11,6 +11,9 @@ ref class Tetrahedron
 {
 public:
 
+	float x0, y0, z0;
+
+
 	Marker^ marker;
 
 	array<float, 2>^ vertixMatrix;

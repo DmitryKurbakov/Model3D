@@ -13,6 +13,10 @@ Tetrahedron::Tetrahedron(array<float, 2>^ t, array<int, 2>^ f)
 Tetrahedron::Tetrahedron()
 {
 
+	x0 = 348;
+	y0 = 226;
+	z0 = 0;
+
 	vertixMatrix = gcnew array<float, 2>(6, 3) {
 
 		{ 0., 0., 400. },
@@ -36,10 +40,10 @@ Tetrahedron::Tetrahedron()
 
 	transVertixMatrix = gcnew array<float, 2>(4, 4) {
 
-		{ 200., 100., 10., 1. },
-		{ 300., 300., 15., 1. },
-		{ 100., 300., 15., 1. },
-		{ 400., 200., 0., 1. },
+		{ x0 + 0., y0 + 0., z0 + 61., 1. },
+		{ x0 + -50., y0 + 28., z0 -20., 1. },
+		{ x0 + 0., y0 - 57., z0 -20., 1. },
+		{ x0 + 50., y0 + 28., z0 -20., 1. },
 
 
 	};

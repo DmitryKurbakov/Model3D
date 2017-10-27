@@ -78,6 +78,8 @@ private: System::Windows::Forms::TextBox^  z0TextBox;
 private: System::Windows::Forms::RadioButton^  perspectiveProjectionRadioButton;
 private: System::Windows::Forms::RadioButton^  parallelProjectionRadioButton;
 private: System::Windows::Forms::Button^  button1;
+private: System::Windows::Forms::MenuStrip^  menuStrip1;
+private: System::Windows::Forms::ToolStripMenuItem^  îÏðîãðàììåToolStripMenuItem;
 
 
 
@@ -123,9 +125,12 @@ private:
 		this->label3 = (gcnew System::Windows::Forms::Label());
 		this->label2 = (gcnew System::Windows::Forms::Label());
 		this->label1 = (gcnew System::Windows::Forms::Label());
+		this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+		this->îÏðîãðàììåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 		this->pictureGroupBox->SuspendLayout();
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox))->BeginInit();
 		this->toolsGroupBox->SuspendLayout();
+		this->menuStrip1->SuspendLayout();
 		this->SuspendLayout();
 		// 
 		// pictureGroupBox
@@ -134,9 +139,9 @@ private:
 			| System::Windows::Forms::AnchorStyles::Left)
 			| System::Windows::Forms::AnchorStyles::Right));
 		this->pictureGroupBox->Controls->Add(this->pictureBox);
-		this->pictureGroupBox->Location = System::Drawing::Point(184, 12);
+		this->pictureGroupBox->Location = System::Drawing::Point(184, 27);
 		this->pictureGroupBox->Name = L"pictureGroupBox";
-		this->pictureGroupBox->Size = System::Drawing::Size(532, 452);
+		this->pictureGroupBox->Size = System::Drawing::Size(708, 477);
 		this->pictureGroupBox->TabIndex = 0;
 		this->pictureGroupBox->TabStop = false;
 		this->pictureGroupBox->Text = L"Èçîáðàæåíèå";
@@ -149,7 +154,7 @@ private:
 		this->pictureBox->BackColor = System::Drawing::SystemColors::ControlLightLight;
 		this->pictureBox->Location = System::Drawing::Point(6, 19);
 		this->pictureBox->Name = L"pictureBox";
-		this->pictureBox->Size = System::Drawing::Size(520, 427);
+		this->pictureBox->Size = System::Drawing::Size(696, 452);
 		this->pictureBox->TabIndex = 0;
 		this->pictureBox->TabStop = false;
 		// 
@@ -181,9 +186,9 @@ private:
 		this->toolsGroupBox->Controls->Add(this->label3);
 		this->toolsGroupBox->Controls->Add(this->label2);
 		this->toolsGroupBox->Controls->Add(this->label1);
-		this->toolsGroupBox->Location = System::Drawing::Point(12, 12);
+		this->toolsGroupBox->Location = System::Drawing::Point(12, 27);
 		this->toolsGroupBox->Name = L"toolsGroupBox";
-		this->toolsGroupBox->Size = System::Drawing::Size(166, 452);
+		this->toolsGroupBox->Size = System::Drawing::Size(166, 477);
 		this->toolsGroupBox->TabIndex = 1;
 		this->toolsGroupBox->TabStop = false;
 		this->toolsGroupBox->Text = L"Èíñòðóìåíòû";
@@ -215,7 +220,7 @@ private:
 		this->z0TextBox->Name = L"z0TextBox";
 		this->z0TextBox->Size = System::Drawing::Size(39, 20);
 		this->z0TextBox->TabIndex = 36;
-		this->z0TextBox->Text = L"-10";
+		this->z0TextBox->Text = L"-110";
 		// 
 		// perspectiveProjectionRadioButton
 		// 
@@ -439,20 +444,41 @@ private:
 		this->label1->TabIndex = 0;
 		this->label1->Text = L"Ïåðåìåùåíèå";
 		// 
+		// menuStrip1
+		// 
+		this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->îÏðîãðàììåToolStripMenuItem });
+		this->menuStrip1->Location = System::Drawing::Point(0, 0);
+		this->menuStrip1->Name = L"menuStrip1";
+		this->menuStrip1->Size = System::Drawing::Size(904, 24);
+		this->menuStrip1->TabIndex = 2;
+		this->menuStrip1->Text = L"menuStrip1";
+		// 
+		// îÏðîãðàììåToolStripMenuItem
+		// 
+		this->îÏðîãðàììåToolStripMenuItem->Name = L"îÏðîãðàììåToolStripMenuItem";
+		this->îÏðîãðàììåToolStripMenuItem->Size = System::Drawing::Size(94, 20);
+		this->îÏðîãðàììåToolStripMenuItem->Text = L"Î ïðîãðàììå";
+		this->îÏðîãðàììåToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::îÏðîãðàììåToolStripMenuItem_Click);
+		// 
 		// MyForm
 		// 
+		this->AcceptButton = this->button1;
 		this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 		this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-		this->ClientSize = System::Drawing::Size(728, 476);
+		this->ClientSize = System::Drawing::Size(904, 513);
 		this->Controls->Add(this->toolsGroupBox);
 		this->Controls->Add(this->pictureGroupBox);
+		this->Controls->Add(this->menuStrip1);
 		this->Name = L"MyForm";
 		this->Text = L"3D";
 		this->pictureGroupBox->ResumeLayout(false);
 		(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox))->EndInit();
 		this->toolsGroupBox->ResumeLayout(false);
 		this->toolsGroupBox->PerformLayout();
+		this->menuStrip1->ResumeLayout(false);
+		this->menuStrip1->PerformLayout();
 		this->ResumeLayout(false);
+		this->PerformLayout();
 
 	}
 #pragma endregion
@@ -491,6 +517,9 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	}
 
 
+}
+private: System::Void îÏðîãðàììåToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+	MessageBox::Show("Ñåìèíàð 4. 3D\nÊóðáàêîâ Ä.Ñ.\n- Îïèñàíèå ïèðàìèäû â âèäå ìàòðèöû âåðøèí è ìàòðèöû ãðàíåé\n- Âðàùåíèå\n- Ïåðåìåùåíèå\n- Ìàñøòàáèðîâàíèå\n- Ïðîåêöèè\nWindows 10\nVisual Studio 2017\ni7-7700 gtx1070\n18.10.2017");
 }
 };
 
@@ -613,12 +642,11 @@ void MyForm::OnZSScroll(System::Object ^sender, System::Windows::Forms::ScrollEv
 void MyForm::OnCheckedChanged(System::Object ^sender, System::EventArgs ^e)
 {
 
-	
-
 	if (perspectiveProjectionRadioButton->Checked)
 	{
 		z0TextBox->Enabled = true;
 		button1->Enabled = true;
+		z0TextBox->Text = "-110";
 		try
 		{
 			controller->z = (float)Double::Parse(z0TextBox->Text);
